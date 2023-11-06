@@ -20,7 +20,7 @@ class IMOMetAlertsSensor(Entity):
         self.session = session
         self.list_url = "https://api.vedur.is/cap/v1/capbroker/active/category/Met/"
         # url for testing. will return 5 active alerts.
-        #self.list_url = "https://api.vedur.is/cap/v1/capbroker/sent/from/2023/1/1/to/2023/1/5/category/All/"
+        self.list_url = "https://api.vedur.is/cap/v1/capbroker/sent/from/2023/1/1/to/2023/1/5/category/All/"
 
     @property
     def name(self):
@@ -65,7 +65,6 @@ class IMOMetAlertsSensor(Entity):
                         'onset': info.get('onset', ''),
                         'expires': info.get('expires', ''),
                         'severity': info.get('severity', 'Unknown severity'),
-                        'urgency': info.get('urgency', 'Unknown urgency'),
                         'language': info.get('language', self.preferred_language),
                         'icon_uri': info.get('resource', {}).get('uri', ''),
                         'link': info.get('web', '')
