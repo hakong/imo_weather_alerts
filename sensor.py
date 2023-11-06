@@ -19,8 +19,8 @@ class IMOMetAlertsSensor(Entity):
         self.preferred_language = preferred_language
         self.session = session
         self.list_url = "https://api.vedur.is/cap/v1/capbroker/active/category/Met/"
-        # url for testing. will return 5 active alerts.
-        self.list_url = "https://api.vedur.is/cap/v1/capbroker/sent/from/2023/1/1/to/2023/1/5/category/All/"
+        # url for testing. will return 33 active alerts.
+        self.list_url = "https://api.vedur.is/cap/v1/capbroker/sent/from/2023/1/18/to/2023/1/19/category/All/"
 
     @property
     def name(self):
@@ -52,9 +52,11 @@ class IMOMetAlertsSensor(Entity):
         _LOGGER.debug(json_data)
         alerts = []
         if 'alert' in json_data:
+            alert_identifier = json_data['alert'].get('identifier', 'Unknown identifier')
             for info in json_data['alert'].get('info', []):
                 if info.get('language') == self.preferred_language:
                     alert_info = {
+                        'identifier': alert_identifier,
                         'areaDesc': info.get('area', {}).get('areaDesc', 'Unknown area'),
                         'polygon': info.get('area', {}).get('polygon', []),
                         'category': info.get('category', 'Unknown category'),
