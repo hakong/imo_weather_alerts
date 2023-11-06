@@ -6,6 +6,6 @@
     "dependencies": [],
     "codeowners": ["@hakongi"],
     "iot_class": "cloud_polling",
-    "requirements": ["aiohttp", "yarl"]
+    "requirements": ["aiohttp", "yarl", "shapely"]
   }
   

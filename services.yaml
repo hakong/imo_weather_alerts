@@ -1,0 +1,15 @@
+check_user_in_alert_area:
+  description: Check if a user is within a weather alert polygon.
+  fields:
+    user_entity_id:
+      description: The entity_id of the user to check.
+      example: 'person.your_username'
+      selector:
+        entity:
+          domain: person
+    alert_entity_id:
+      description: The entity_id of the weather alert sensor.
+      example: 'sensor.icelandic_met_office_alerts'
+      selector:
+        entity:
+          domain: sensor
