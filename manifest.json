@@ -1,0 +1,11 @@
+{
+    "domain": "imo_weather_alerts",
+    "name": "IMO Weather Alerts",
+    "version": "0.1.0",
+    "documentation": "",
+    "dependencies": [],
+    "codeowners": ["@hakongi"],
+    "iot_class": "cloud_polling",
+    "requirements": ["aiohttp", "yarl"]
+  }
+  
